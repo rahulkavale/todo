@@ -1,0 +1,71 @@
+Nice explorable reports
+Nice and pluggable way for assertions
+      simplest way for assertions is default
+ (defn is
+  ([f ex ac] (is f ex ac ""))
+  ([f ex ac fail-msg]
+   (let [default-succ-msg "success"
+         status (f ex ac)   ;; this should be within try catch as a single failure should not stop all the remaining tests
+         msg (if (and (not status)
+                      ((complement nil?) fail-msg))
+               fail-msg
+               default-succ-msg)]
+     (println msg)
+     {:status status
+      :expected ex
+      :actual ac
+      :msg msg})))
+
+      rspec way
+      junit way
+Parallel running of tests
+         tests are run in random order
+
+Watcher -> to run only changed tests
+
+Least feedback time -> quicker feedback cycle
+      REPL integrated way for writing tests -> run before setup
+                                               run before each setup
+                                               run after each setup
+                                               run after all setup
+Easily ignore/tag tests or exclude running those
+Benchmarking tests for removing redundancies
+             time for each tests
+
+Arrange Act Assert way of things as first class
+        rather than nested lets
+
+Setup
+        before each
+        before global
+        after each
+        after global
+
+Mock and stub
+     clener way -> change with-redefs to something similar/reuse
+     provide mocked implementations of mongo
+                                       redis
+                                       kafka
+                                       postgres
+
+Metrics
+        CPU
+        heat graphs
+
+Native performance testing support
+       concurrent requests
+
+
+Smooth integration with tools
+       build tool -> leiningen
+       code coverage
+       liniting
+       CI/CD
+       repl integration
+
+
+jasmine
+rspec
+junit
+midje
+core.test
