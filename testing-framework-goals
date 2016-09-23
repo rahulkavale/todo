@@ -64,8 +64,12 @@ Smooth integration with tools
        repl integration
 
 
-jasmine
+Generative testing
+
+
+Inspiration
 rspec
 junit
 midje
 core.test
+jasmine
